@@ -28,6 +28,7 @@ class ViewController: UIViewController {
 
     databaseRef = Database.database().reference()
 
+    fetchData()
     
   }
 
@@ -35,13 +36,20 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
+  var movieList = [Movie]()
   func fetchData(){
     databaseRef.child("Movie").observe(.childAdded) { (snapshot) in
       
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
+        let movie = Movie()
         
+        movie.name = dictionary["name"] as? String
+        movie.chinese = dictionary["chinese"] as? String
+        movie.english = dictionary["english"] as? String
+        movie.imageUrl = dictionary["image"] as? String
+        movie.detail = dictionary["detail"] as? String
+
       }
       
     }
