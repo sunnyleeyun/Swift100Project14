@@ -14,7 +14,6 @@ class ViewController: UIViewController {
 
   var databaseRef: DatabaseReference!
   
-  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case one = 0
@@ -70,13 +69,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case DetailViewSection.one.rawValue:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "one", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "one", for: indexPath) as! OneTableViewCell
       return cell
     case DetailViewSection.two.rawValue:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "two", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "two", for: indexPath) as! TwoTableViewCell
       return cell
     case DetailViewSection.three.rawValue:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "three", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "three", for: indexPath) as! ThreeTableViewCell
       return cell
     default: fatalError()
     }
