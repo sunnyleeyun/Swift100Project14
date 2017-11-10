@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController {
 
+  var databaseRef: DatabaseReference!
+  
+  @IBOutlet weak var image: UIImageView!
+  @IBOutlet weak var chinese: UILabel!
+  @IBOutlet weak var english: UILabel!
+  @IBOutlet weak var detail: UITextView!
+  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case one = 0
@@ -22,12 +31,25 @@ class ViewController: UIViewController {
     tableView.dataSource = self
     tableView.tableFooterView = UIView()
 
+    databaseRef = Database.database().reference()
+
     
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func fetchData(){
+    databaseRef.child("Movie").observe(.childAdded) { (snapshot) in
+      
+      if let dictionary = snapshot.value as? [String: AnyObject]{
+        print("dictionary is \(dictionary)")
+        
+      }
+      
+    }
   }
 
 
