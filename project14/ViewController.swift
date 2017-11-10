@@ -18,6 +18,10 @@ class ViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.tableFooterView = UIView()
+
     
   }
 
@@ -27,5 +31,40 @@ class ViewController: UIViewController {
   }
 
 
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 3
+  }
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    switch section {
+    case DetailViewSection.one.rawValue:
+      return 1
+    case DetailViewSection.two.rawValue:
+      return 1
+    case DetailViewSection.three.rawValue:
+      return 1
+    default: fatalError()
+    }
+    
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    switch indexPath.section {
+    case DetailViewSection.one.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "one", for: indexPath)
+      return cell
+    case DetailViewSection.two.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "two", for: indexPath)
+      return cell
+    case DetailViewSection.three.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "three", for: indexPath)
+      return cell
+    default: fatalError()
+    }
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 150.0
+  }
 }
 
