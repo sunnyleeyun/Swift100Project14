@@ -50,6 +50,10 @@ class ViewController: UIViewController {
         movie.imageUrl = dictionary["image"] as? String
         movie.detail = dictionary["detail"] as? String
 
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
+        
       }
       
     }
@@ -78,12 +82,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     switch indexPath.section {
     case DetailViewSection.one.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "one", for: indexPath) as! OneTableViewCell
+      if let imgUrl = URL(string: movieList[indexPath.row].imageUrl!){
+        cell.imageUrl.downloadedFrom(url: imgUrl)
+      }
+      
       return cell
     case DetailViewSection.two.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "two", for: indexPath) as! TwoTableViewCell
+      cell.chinese.text = movieList[indexPath.row].chinese
+      cell.english.text = movieList[indexPath.row].english
+
+
       return cell
     case DetailViewSection.three.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "three", for: indexPath) as! ThreeTableViewCell
+      cell.detail.text = movieList[indexPath.row].detail
+    
+
       return cell
     default: fatalError()
     }
