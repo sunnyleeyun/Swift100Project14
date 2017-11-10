@@ -64,7 +64,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 150.0
+    switch indexPath.section {
+    case DetailViewSection.one.rawValue:
+      return 240.0
+    case DetailViewSection.two.rawValue:
+      return 120.0
+    case DetailViewSection.three.rawValue:
+      return 240.0
+    default:
+      fatalError()
+    }
   }
 }
 
