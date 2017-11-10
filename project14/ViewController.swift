@@ -14,10 +14,6 @@ class ViewController: UIViewController {
 
   var databaseRef: DatabaseReference!
   
-  @IBOutlet weak var image: UIImageView!
-  @IBOutlet weak var chinese: UILabel!
-  @IBOutlet weak var english: UILabel!
-  @IBOutlet weak var detail: UITextView!
   
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{

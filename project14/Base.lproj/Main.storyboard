@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="one" rowHeight="240" id="9DJ-rS-28U">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="one" rowHeight="240" id="9DJ-rS-28U" customClass="OneTableViewCell" customModule="project14" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9DJ-rS-28U" id="zbo-q9-YCE">
@@ -41,8 +41,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="QZX-Wh-bnW" secondAttribute="trailing" id="g7X-26-2UD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageUrl" destination="QZX-Wh-bnW" id="UQL-xc-1EG"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="two" rowHeight="120" id="h8I-Ki-m7n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="two" rowHeight="120" id="h8I-Ki-m7n" customClass="TwoTableViewCell" customModule="project14" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="268" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8I-Ki-m7n" id="yF9-v9-UTQ">
@@ -73,8 +76,12 @@
                                                 <constraint firstItem="jDo-R2-oQg" firstAttribute="centerY" secondItem="yF9-v9-UTQ" secondAttribute="centerY" id="teH-iz-EBt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chinese" destination="TM3-u9-oAq" id="zgG-M6-ZUH"/>
+                                            <outlet property="english" destination="yGb-iH-q9g" id="4lg-WM-J3A"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="three" rowHeight="220" id="CQl-Z4-ggq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="three" rowHeight="220" id="CQl-Z4-ggq" customClass="ThreeTableViewCell" customModule="project14" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="388" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CQl-Z4-ggq" id="Ba5-qY-69A">
@@ -96,6 +103,9 @@
                                                 <constraint firstItem="frg-Dj-lIL" firstAttribute="trailing" secondItem="Ba5-qY-69A" secondAttribute="trailingMargin" id="xGN-lh-V4E"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detail" destination="frg-Dj-lIL" id="cV4-JB-OGa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -111,10 +121,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="The Intern" id="Ud7-e5-VQQ"/>
                     <connections>
-                        <outlet property="chinese" destination="TM3-u9-oAq" id="xJ3-8R-xms"/>
-                        <outlet property="detail" destination="frg-Dj-lIL" id="VGg-ho-pbL"/>
-                        <outlet property="english" destination="yGb-iH-q9g" id="Z6N-hj-gHy"/>
-                        <outlet property="image" destination="QZX-Wh-bnW" id="08B-ew-04c"/>
                         <outlet property="tableView" destination="gYF-nf-Pau" id="fd0-xm-nkl"/>
                     </connections>
                 </viewController>
