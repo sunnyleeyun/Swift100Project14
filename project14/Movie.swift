@@ -17,3 +17,15 @@ class Movie: NSObject{
   var imageUrl: String?
   
 }
+
+class One: NSObject {
+  var imageUrl: String?
+}
+class Two: NSObject {
+  var chinese: String?
+  var english: String?
+}
+class Three: NSObject {
+  var detail: String?
+}
+

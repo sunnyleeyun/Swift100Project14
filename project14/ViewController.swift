@@ -36,20 +36,40 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  var movieList = [Movie]()
+//  var movieList = [Movie]()
+  
+  var oneList = [One]()
+  var twoList = [Two]()
+  var threeList = [Three]()
+  
   func fetchData(){
     databaseRef.child("Movie").observe(.childAdded) { (snapshot) in
       
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
-        let movie = Movie()
+//        let movie = Movie()
         
-        movie.name = dictionary["name"] as? String
-        movie.chinese = dictionary["chinese"] as? String
-        movie.english = dictionary["english"] as? String
-        movie.imageUrl = dictionary["image"] as? String
-        movie.detail = dictionary["detail"] as? String
-
+        let one = One()
+        let two = Two()
+        let three = Three()
+        
+//        movie.name = dictionary["name"] as? String
+//        movie.chinese = dictionary["chinese"] as? String
+//        movie.english = dictionary["english"] as? String
+//        movie.imageUrl = dictionary["image"] as? String
+//        movie.detail = dictionary["detail"] as? String
+//
+//        self.movieList.append(movie)
+        
+        one.imageUrl = dictionary["image"] as? String
+        two.chinese = dictionary["chinese"] as? String
+        two.english = dictionary["english"] as? String
+        three.detail = dictionary["detail"] as? String
+        
+        self.oneList.append(one)
+        self.twoList.append(two)
+        self.threeList.append(three)
+        
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
@@ -69,11 +89,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
     case DetailViewSection.one.rawValue:
-      return 1
+      return oneList.count
     case DetailViewSection.two.rawValue:
-      return 1
+      return twoList.count
     case DetailViewSection.three.rawValue:
-      return 1
+      return threeList.count
     default: fatalError()
     }
     
@@ -82,22 +102,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     switch indexPath.section {
     case DetailViewSection.one.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "one", for: indexPath) as! OneTableViewCell
-      if let imgUrl = URL(string: movieList[indexPath.row].imageUrl!){
+      if let imgUrl = URL(string: oneList[indexPath.row].imageUrl!){
         cell.imageUrl.downloadedFrom(url: imgUrl)
       }
       
       return cell
     case DetailViewSection.two.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "two", for: indexPath) as! TwoTableViewCell
-      cell.chinese.text = movieList[indexPath.row].chinese
-      cell.english.text = movieList[indexPath.row].english
+      cell.chinese.text = twoList[indexPath.row].chinese
+      cell.english.text = twoList[indexPath.row].english
 
 
       return cell
     case DetailViewSection.three.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "three", for: indexPath) as! ThreeTableViewCell
-      cell.detail.text = movieList[indexPath.row].detail
+      cell.detail.text = threeList[indexPath.row].detail
     
+      
 
       return cell
     default: fatalError()
