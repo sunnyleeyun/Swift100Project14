@@ -53,17 +53,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jDo-R2-oQg">
-                                                    <rect key="frame" x="15" y="34.5" width="345" height="51"/>
+                                                    <rect key="frame" x="15" y="40.5" width="345" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM3-u9-oAq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="25.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGb-iH-q9g">
-                                                            <rect key="frame" x="0.0" y="25.5" width="345" height="25.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                            <rect key="frame" x="0.0" y="19.5" width="345" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
